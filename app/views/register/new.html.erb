@@ -1,0 +1,24 @@
+<%= render 'shared/errors' %>
+
+<%= form_for :user, class: 'user_data_form' do |f| %>
+
+  <div class="input_item">
+    <%= label_tag :username, 'Имя пользователя' %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="input_item">
+    <%= label_tag :email, 'Email' %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="input_item">
+    <%= label_tag :password, 'Пароль' %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="input_item">
+    <%= label_tag :password_confirmation, 'Подтверждение пароля' %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="input_item">
+    <%= f.submit 'Зарегистрироваться' %>
+  </div>
+<% end %>

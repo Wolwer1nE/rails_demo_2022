@@ -1,0 +1,15 @@
+.error_message{
+ color: #B00100;
+}
+
+.user_data_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    height: 200px;
+}
+.input_item {
+    display: flex;
+    justify-content: space-between;
+}

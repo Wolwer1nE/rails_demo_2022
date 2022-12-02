@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_073312) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_02_095649) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,39 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_073312) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "wish_marks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "wish_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wish_marks_on_user_id"
+    t.index ["wish_id"], name: "index_wish_marks_on_wish_id"
+  end
+
+  create_table "wish_states", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "wishes", force: :cascade do |t|
+    t.string "title"
+    t.bigint "wishlist_id"
+    t.bigint "wish_state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wish_state_id"], name: "index_wishes_on_wish_state_id"
+    t.index ["wishlist_id"], name: "index_wishes_on_wishlist_id"
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
 end

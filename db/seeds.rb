@@ -6,5 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 unless WishState.any?
-  WishState.create!([{title: 'Хочу'}, {title: 'Кто-то подарит'}, {title: 'Подарили'}])
+  WishState.create!([{title: 'Хочу'},
+                     {title: 'Кто-то подарит'},
+                     {title: 'Подарили'}])
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password',
+                  password_confirmation: 'password') if Rails.env.development?

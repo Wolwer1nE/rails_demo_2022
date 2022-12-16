@@ -71,3 +71,12 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Active Admin
+gem 'activeadmin'
+
+gem 'devise'
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
+gem 'sass-rails'
